@@ -3,7 +3,7 @@
 #include "VaultSettings.h"
 #include "Misc/Paths.h"
 #include "Misc/DateTime.h"
-#include "JsonUtilities/Public/JsonUtilities.h"
+#include "JsonUtilities.h"
 #include "Serialization\JsonReader.h"
 #include <Interfaces/IPluginManager.h>
 #include "Misc/AssertionMacros.h"

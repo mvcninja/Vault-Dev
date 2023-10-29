@@ -123,7 +123,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 			.Padding(FMargin(0, 0, 3, 0))
 			[
 				SNew(STextBlock)
-				.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
+				.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
 				.Text_Lambda([this]
 				{
 					return !CurrentlySelectedAsset.IsValid() ?
@@ -156,7 +156,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 			.Padding(FMargin(0, 0, 3, 0))
 			[
 				SNew(STextBlock)
-				.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
+				.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
 				.Text_Lambda([this]
 				{
 					return PackageNameInput->GetText().IsEmpty() ?
@@ -190,7 +190,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 			.Padding(FMargin(0,0,3,0))
 			[
 				SNew(STextBlock)
-				.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
+				.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
 				.Text_Lambda([this] 
 				{ 
 					return AuthorInput->GetText().IsEmpty() ? 
@@ -227,7 +227,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 			.Padding(FMargin(0, 0, 3, 0))
 			[
 				SNew(STextBlock)
-				.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
+				.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
 				.Text_Lambda([this]
 				{
 					return DescriptionInput->GetText().IsEmpty() ?
@@ -268,8 +268,8 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 				.HAlign(HAlign_Center)
 				.OnClicked(this, &SPublisherWindow::TryPackage)
 				.Text(LOCTEXT("SubmitToVaultLabel", "Submit to Vault"))
-				.ButtonStyle(FEditorStyle::Get(), "FlatButton.Success")
-				.TextStyle(FEditorStyle::Get(), "NormalText.Important")
+				.ButtonStyle(FAppStyle::Get(), "FlatButton.Success")
+				.TextStyle(FAppStyle::Get(), "NormalText.Important")
 				.ContentPadding(FMargin(10.0, 10.0))
 				//.IsEnabled(this, &SPublisherWindow::CanPackage) // dont handle it like this until we sort the disabled style
 			]
@@ -321,7 +321,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 						// Take Screenshot From World
 						SNew(SButton)
 						.ContentPadding(FMargin(6.f))
-						.ButtonStyle(FEditorStyle::Get(), "FlatButton.Primary")
+						.ButtonStyle(FAppStyle::Get(), "FlatButton.Primary")
 						.OnClicked(this, &SPublisherWindow::OnCaptureImageFromViewport)
 						[
 							SNew(SHorizontalBox)
@@ -329,9 +329,9 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 							.AutoWidth()
 							[
 								SNew(STextBlock)
-								.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
-								.TextStyle(FEditorStyle::Get(), "NormalText.Important")
-								.Text(FEditorFontGlyphs::Camera)
+								.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
+								.TextStyle(FAppStyle::Get(), "NormalText.Important")
+								.Text(FEditorFontGlyphs::Video_Camera)
 							]
 
 							+ SHorizontalBox::Slot()
@@ -339,7 +339,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 							.Padding(FMargin(5, 0, 0, 0))
 							[
 								SNew(STextBlock)
-								.TextStyle(FEditorStyle::Get(), "NormalText.Important")
+								.TextStyle(FAppStyle::Get(), "NormalText.Important")
 								.Text(LOCTEXT("TakeScreenshotLbl", "Capture Viewport"))
 							]
 						]
@@ -349,7 +349,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 					[
 						SNew(SButton)
 						.ContentPadding(FMargin(6.f))
-						.ButtonStyle(FEditorStyle::Get(), "FlatButton.Primary")
+						.ButtonStyle(FAppStyle::Get(), "FlatButton.Primary")
 						.OnClicked(this, &SPublisherWindow::OnCaptureImageFromFile)
 						[
 							SNew(SHorizontalBox)
@@ -357,9 +357,9 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 							.AutoWidth()
 							[
 								SNew(STextBlock)
-								.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
-								.TextStyle(FEditorStyle::Get(), "NormalText.Important")
-								.Text(FEditorFontGlyphs::File_Image_O)
+								.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
+								.TextStyle(FAppStyle::Get(), "NormalText.Important")
+								.Text(FEditorFontGlyphs::File)
 
 							]
 							+ SHorizontalBox::Slot()
@@ -367,7 +367,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 							.Padding(FMargin(5,0,0,0))
 							[
 								SNew(STextBlock)
-								.TextStyle(FEditorStyle::Get(), "NormalText.Important")
+								.TextStyle(FAppStyle::Get(), "NormalText.Important")
 								.Text(LOCTEXT("LoadScreenshotFromFileLbl", "Load From File"))
 							]
 						]
@@ -379,14 +379,14 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 				[
 					SNew(SButton)
 					.ContentPadding(FMargin(6.f))
-					.ButtonStyle(FEditorStyle::Get(), "FlatButton.Info")
+					.ButtonStyle(FAppStyle::Get(), "FlatButton.Info")
 					.ToolTipText(LOCTEXT("LoadMapFromPresetTooltip", "Load Map from Preset. \n This will load either the Preset map, or if you have a map file to publish, will load this map. \nThis is hard-coded in this release, but future releases will support multiple choices"))
 					.OnClicked(this, &SPublisherWindow::GenerateMapFromPreset)
 					[
 						SNew(STextBlock)
 						.Justification(ETextJustify::Center)
 						.Text(LOCTEXT("LoadPresetMapLabel", "Load Preset Map"))
-						.TextStyle(FEditorStyle::Get(), "NormalText.Important")
+						.TextStyle(FAppStyle::Get(), "NormalText.Important")
 					]
 				]
 				+ SVerticalBox::Slot()
@@ -424,7 +424,7 @@ void SPublisherWindow::Construct(const FArguments& InArgs)
 							.AllowMultiLine(true)
 							.AlwaysShowScrollbars(false)
 							//.BackgroundColor(FLinearColor::Black)
-							.Style(FEditorStyle::Get(), "Log.TextBox")
+							.Style(FAppStyle::Get(), "Log.TextBox")
 							.Text(this, &SPublisherWindow::GetSecondaryAssetList)
 						]
 					]

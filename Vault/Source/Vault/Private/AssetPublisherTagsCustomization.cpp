@@ -36,7 +36,7 @@ void SPublisherTagsWidget::Construct(const FArguments& InArgs)
 			.Padding(FMargin(0, 0, 3, 0))
 			[
 				SNew(STextBlock)
-				.Font(FEditorStyle::Get().GetFontStyle("FontAwesome.12"))
+				.Font(FAppStyle::Get().GetFontStyle("FontAwesome.12"))
 				.Text_Lambda([this]
 				{
 					return TagsCustomBox->GetText().IsEmpty() ?

@@ -7,7 +7,7 @@
 #include "Misc/MessageDialog.h"
 #include "Framework/MultiBox/MultiBoxBuilder.h"
 #include "SVaultRootPanel.h"
-#include "MainFrame/Public/Interfaces/IMainFrameModule.h"
+#include "Interfaces/IMainFrameModule.h"
 #include "VaultSettings.h"
 #include "SPublisherWindow.h"
 #include "AssetPublisher.h"
@@ -104,7 +104,7 @@ void FVaultModule::ShutdownModule()
 void FVaultModule::SpawnOperationsTab()
 {
 	TSharedRef<FGlobalTabmanager> TabManager = FGlobalTabmanager::Get();
-	TabManager->InvokeTab(VaultTabName);
+	TabManager->TryInvokeTab(VaultTabName);
 }
 
 FVaultModule& FVaultModule::Get()

@@ -6,7 +6,7 @@
 
 #include "Misc/Paths.h"
 #include "Misc/DateTime.h"
-#include "JsonUtilities/Public/JsonUtilities.h"
+#include "JsonUtilities.h"
 #include "HAL/FileManager.h"
 
 

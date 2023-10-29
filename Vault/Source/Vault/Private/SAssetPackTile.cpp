@@ -97,7 +97,7 @@ TSharedRef<SWidget> SAssetTileItem::CreateTileThumbnail(TSharedPtr<FVaultMetadat
 			+ SOverlay::Slot()
 			[
 				SNew(SImage) 
-				.Image(FEditorStyle::GetDefaultBrush())
+				.Image(FAppStyle::GetDefaultBrush())
 			];
 	}
 	
